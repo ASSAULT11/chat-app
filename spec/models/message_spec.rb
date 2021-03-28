@@ -3,7 +3,8 @@ require 'rails_helper'
 RSpec.describe Message, type: :model do
   describe '#create' do
     before do
-      @message = FactoryBot.build(:message)
+      @user = FactoryBot.create(:user)
+      @message = FactoryBot.build(:message、user_id: @user.id)
     end
 
     it 'contentとimageが存在していれば保存できること' do
